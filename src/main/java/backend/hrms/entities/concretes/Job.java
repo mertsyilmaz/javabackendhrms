@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="Jobs")
+@Table(name="jobs")
 public class Job {
 	
 	@Id
@@ -23,7 +23,7 @@ public class Job {
 	@Column(name="job_id")
 	private int id;
 	
-	@Column(name="name")
+	@Column(name="job_name")
 	private String name;
 
 }
