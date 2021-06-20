@@ -38,7 +38,7 @@ public class User {
 	private String password;
 	
 	
-	@OneToOne(mappedBy = "user")
+	@OneToOne(mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@PrimaryKeyJoinColumn
 	private SystemUser systemUser;
 	
