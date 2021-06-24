@@ -10,6 +10,7 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="employees")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","resume"})
 public class Employee {
 
 	@Id
@@ -42,5 +44,8 @@ public class Employee {
 	@MapsId
 	@JoinColumn(name="user_id")
 	private User user;
+	
+	@OneToOne(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Resume resume;
 
 }
